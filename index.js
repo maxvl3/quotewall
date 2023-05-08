@@ -73,11 +73,12 @@ MongoClient.connect(url)
     mongoClient = client;
     console.log("Verbonden met de MongoDB-server.");
 
-    // Start de server nadat de verbinding met de database tot stand is gebracht
-    http.listen(port, () => {
-      console.log("Luisteren op poort", port);
-    });
   })
   .catch((error) => {
     console.error("Fout bij het verbinden met de MongoDB-server:", error);
   });
+
+      // Start de server nadat de verbinding met de database tot stand is gebracht
+      http.listen(port, () => {
+        console.log("Luisteren op poort", port);
+      });
