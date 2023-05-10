@@ -59,6 +59,7 @@ form div {
 
 form div p {
   font-weight: 500;
+  cursor: pointer;
 }
 
 form div button {
@@ -69,6 +70,7 @@ form div button {
   border-radius: 1000px;
   color: white;
   font-weight: 500;
+  cursor: pointer;
 }
 
 ul {
