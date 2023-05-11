@@ -90,7 +90,7 @@ ul li {
 }
 
 @media only screen and (max-width: 580px) {
-  form{
+  form {
     width: 100%;
   }
 }

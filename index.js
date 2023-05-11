@@ -7,15 +7,11 @@ const io = require("socket.io")(http);
 const port = process.env.PORT || 4242;
 const { MongoClient } = require("mongodb");
 
-// Verbindings-URL voor MongoDB
 const url = `mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@database.p67zuca.mongodb.net/?retryWrites=true&w=majority`;
-// Naam van de database
 const dbName = "db";
 
-// MongoDB-client voor de verbinding
 let mongoClient;
 
-// Functie om een nieuwe quote toe te voegen aan de database
 async function addQuoteToDatabase(quote) {
   try {
     const db = mongoClient.db(dbName);
@@ -30,7 +26,6 @@ async function addQuoteToDatabase(quote) {
   }
 }
 
-// Functie om quotes uit de database op te halen
 async function getQuotesFromDatabase() {
   try {
     const db = mongoClient.db(dbName);
@@ -67,18 +62,15 @@ app.get("/quotes", async (req, res) => {
   }
 });
 
-// Verbind met de MongoDB-server voordat de server luistert naar het poortnummer
 MongoClient.connect(url)
   .then((client) => {
     mongoClient = client;
     console.log("Verbonden met de MongoDB-server.");
-
   })
   .catch((error) => {
     console.error("Fout bij het verbinden met de MongoDB-server:", error);
   });
 
-      // Start de server nadat de verbinding met de database tot stand is gebracht
-      http.listen(port, () => {
-        console.log("Luisteren op poort", port);
-      });
+http.listen(port, () => {
+  console.log("Luisteren op poort", port);
+});
